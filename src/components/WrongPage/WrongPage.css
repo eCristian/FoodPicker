@@ -1,0 +1,17 @@
+#notfound {
+  background-image: url("notfound.jpg");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute
+}
+
+#goBackText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+  margin-top: 47%;
+}
