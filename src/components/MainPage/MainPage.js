@@ -15,8 +15,8 @@ class MainPage extends React.Component {
       <div>
         <Link to="/"><img id="logo" src={logo} alt="Logo" /></Link>
         <ul>
-          <Link to="/register"><img id="register" src={register} alt="Register Page" /></Link>
-          <Link to="/login"><img id="login" src={login} alt="Login Page" /></Link>
+          <Link to="/register"><img id="registerBtn" src={register} alt="Register Page" /></Link>
+          <Link to="/login"><img id="loginBtn" src={login} alt="Login Page" /></Link>
         </ul>
       </div>
     )
