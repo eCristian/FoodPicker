@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './WrongPage.css';
-import notfound from './notfound.jpg';
 import gobacktext from './gobacktext.png';
 
 class WrongPage extends React.Component {
