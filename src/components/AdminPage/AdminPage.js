@@ -46,7 +46,7 @@ class AdminPage extends React.Component {
   }
 
   handleSubmit = (event) => {
-    firebase.database().ref("Food Or Dessert Name").set({
+    firebase.database().ref("Food Or Dessert Name").push({
       name: `${this.state.foodOrDessertName}`
     })
     alert(`${this.state.foodOrDessertName} Added Successfully to database!`)
