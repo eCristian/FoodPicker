@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './MainPage.css';
 import '../GlobalFiles/GlobalFiles.css';
+import './HomePage.css';
 
 import register from './register.png';
 import login from './login.png';
 import logo from '../GlobalFiles/logo.png';
 
-
-class MainPage extends React.Component {
+class HomePage extends React.Component {
   render() {
     return (
       <div>
@@ -23,4 +22,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default HomePage;

@@ -6,28 +6,38 @@ import {
   Switch,
   Route,
   Redirect
-} from "react-router-dom";
+} from 'react-router-dom';
+
+import { AuthProvider } from './components/Auth/Auth';
+import UserRoute from './components/PrivateRoutes/UserRoute/UserRoute';
+import AdminRoute from './components/PrivateRoutes/AdminRoute/AdminRoute';
 
 //Pages
-import MainPage from './components/MainPage/MainPage';
+import HomePage from './components/HomePage/HomePage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import LoginPage from './components/LoginPage/LoginPage';
 import AdminPage from './components/AdminPage/AdminPage';
+import UserPage from './components/UserPage/UserPage';
 import WrongPage from './components/WrongPage/WrongPage';
 
 class App extends React.Component {
-  render() {
+    render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route exact path="/register" component={RegisterPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/admin" component={AdminPage} />
-          <Route exact path="/pageNotFound" component={WrongPage} />
-          <Redirect to="/pageNotFound" />
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/register" component={RegisterPage} />
+              <Route exact path="/login" component={LoginPage} />
+              <AdminRoute exact path="/admin" component={AdminPage} />
+              <UserRoute exact path="/user" component={UserPage} />
+              <Route exact path="/pageNotFound" component={WrongPage} />
+              <Redirect to="/pageNotFound" />
+            </Switch>
+          </div>
+        </Router>
+      </AuthProvider>
     );
   }
 }

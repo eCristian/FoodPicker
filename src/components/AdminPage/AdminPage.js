@@ -7,20 +7,7 @@ import './AdminPage.css';
 import logo from '../GlobalFiles/logo.png';
 import addfood from './addfood.png';
 
-import * as firebase from "firebase/app";
-import "firebase/database";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDuEadA7JVjjNgIaOcQZACQB7nq-WBNPiw",
-  authDomain: "foodpicker-50f7b.firebaseapp.com",
-  databaseURL: "https://foodpicker-50f7b.firebaseio.com",
-  projectId: "foodpicker-50f7b",
-  storageBucket: "foodpicker-50f7b.appspot.com",
-  messagingSenderId: "59468916442",
-  appId: "1:59468916442:web:bfc6a1a85621981b2a27e3"
-};
-
-firebase.initializeApp(firebaseConfig);
+import fire from '../../Firebase';
 
 class AdminPage extends React.Component {
   constructor(props) {
@@ -46,11 +33,16 @@ class AdminPage extends React.Component {
   }
 
   handleSubmit = (event) => {
-    firebase.database().ref("Food Or Dessert Name").push({
+    event.preventDefault();
+    fire.database().ref("Food Or Dessert Name").push({
       name: `${this.state.foodOrDessertName}`
     })
     alert(`${this.state.foodOrDessertName} Added Successfully to database!`)
-    event.preventDefault();
+  }
+
+  handleLogout = () => {
+    fire.auth().signOut();
+    this.props.history.push('/')
   }
 
   render() {
@@ -64,43 +56,39 @@ class AdminPage extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div class="form-group">
               <label for="inputFoodOrDessert">Food or Dessert name</label>
-              <input type="text" value={this.state.foodOrDessertName} onChange={this.foodOrDessertNameHandler} class="form-control" id="inputFoodOrDessertName" />
+              <input type="text" value={this.state.foodOrDessertName} onChange={this.foodOrDessertNameHandler} class="form-control" id="inputFoodOrDessertName" required />
             </div>
             <div class="form-group">
-              <label for="whenServed"><strong>When is the Food/Dessert served?</strong></label><br />
+              <label for="inputWhenServed"><strong>When is the Food/Dessert served?</strong></label><br />
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="breakfast" />
-                <label class="form-check-label" for="inlineRadio1">Breakfast</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" required />
+                <label class="form-check-label" for="inlineRadio1">BREAKFAST</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="lunch" />
-                <label class="form-check-label" for="inlineRadio2">Lunch</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" required />
+                <label class="form-check-label" for="inlineRadio1">LUNCH</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="dinner" />
-                <label class="form-check-label" for="inlineRadio3">Dinner</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" required />
+                <label class="form-check-label" for="inlineRadio1">DINNER </label>
               </div>
+              <br />
+              <br />
+              <label for="inputWhereToAdd"><strong>Where to add?</strong></label><br />
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option1" required />
+                <label class="form-check-label" for="inlineRadio2">FOOD</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option1" required />
+                <label class="form-check-label" for="inlineRadio2">DESSERT</label>
+              </div>
+              <br />
             </div>
-          </form>
-        </div>
-        <div className="formAdmin">
-          <form onSubmit={this.handleSubmit}>
-          <div class="form-group">
-            <label for="whenServed"><strong>Where to add?</strong></label><br />
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="food" />
-              <label class="form-check-label" for="inlineRadio1">Food</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="dessert" />
-              <label class="form-check-label" for="inlineRadio2">Dessert</label>
-            </div>
-          </div>
             <button id="submitBtn" type="submit" value="Submit" class="btn btn-primary">Add</button>
           </form>
-        </div>
-        <div id="footerTextAdmin">
-          <p>You are logged in as Admin. <Link to="/"><em><u>Logout</u></em></Link></p>
+          <p id="footerTextAdmin">You are logged in as Admin.</p>
+          <button type="button" class="btn btn-danger" onClick={this.handleLogout}>Logout</button>
         </div>
       </div>
     )
