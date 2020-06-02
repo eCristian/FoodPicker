@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// CSS
 import '../GlobalFiles/GlobalFiles.css';
 import './HomePage.css';
 
+// Images
 import register from './register.png';
 import login from './login.png';
 import logo from '../GlobalFiles/logo.png';

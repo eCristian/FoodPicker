@@ -1,14 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { AuthProvider } from './components/Auth/Auth';
 import './App.css';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom';
-
-import { AuthProvider } from './components/Auth/Auth';
+// Private Routes
 import UserRoute from './components/PrivateRoutes/UserRoute/UserRoute';
 import AdminRoute from './components/PrivateRoutes/AdminRoute/AdminRoute';
 

@@ -1,14 +1,16 @@
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import fire from '../../Firebase';
 
+// CSS
 import '../GlobalFiles/GlobalFiles.css';
 import './RegisterPage.css';
 
+// Images
 import logo from '../GlobalFiles/logo.png';
 import registerTitle from './registerTitle.png';
 
-import fire from '../../Firebase';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {

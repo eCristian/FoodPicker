@@ -1,15 +1,17 @@
 import React, { useCallback, useContext }  from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter, Redirect } from 'react-router';
+import fire from '../../Firebase';
+import { AuthContext } from '../Auth/Auth';
 
+// CSS
 import '../GlobalFiles/GlobalFiles.css';
 import './LoginPage.css';
 
+// Images
 import logo from '../GlobalFiles/logo.png';
 import loginTitle from './loginTitle.png';
 
-import fire from '../../Firebase';
-import { AuthContext } from '../Auth/Auth';
 
 let adminNumber = 0;
 let userNumber = 0;
@@ -69,6 +71,5 @@ const Login = ({ history }) => {
     </div>
   )
 }
-
 
 export default withRouter(Login);

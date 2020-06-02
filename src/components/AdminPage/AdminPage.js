@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import fire from '../../Firebase';
 
+// CSS
 import '../GlobalFiles/GlobalFiles.css';
 import './AdminPage.css';
 
+// Images
 import logo from '../GlobalFiles/logo.png';
 import addfood from './addfood.png';
-
-import fire from '../../Firebase';
 
 class AdminPage extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class AdminPage extends React.Component {
     this.setState({foodOrDessertName: event.target.value})
   }
 
-  whenSevedHandler = (event) => {
+  whenServedHandler = (event) => {
     this.setState({whenServed: event.target.value})
   }
 
@@ -34,9 +35,19 @@ class AdminPage extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    fire.database().ref("Food Or Dessert Name").push({
-      name: `${this.state.foodOrDessertName}`
-    })
+
+    if ( document.getElementById('inlineRadio4').checked ) {
+      fire.database().ref(`${this.state.whereToAdd}`).push({
+        Name: `${this.state.foodOrDessertName}`,
+        Served: `${this.state.whenServed}`
+      })
+    } else {
+      fire.database().ref(`${this.state.whereToAdd}`).push({
+        Name: `${this.state.foodOrDessertName}`,
+        Served: `${this.state.whenServed}`
+      })
+    }
+
     alert(`${this.state.foodOrDessertName} Added Successfully to database!`)
   }
 
@@ -61,26 +72,26 @@ class AdminPage extends React.Component {
             <div class="form-group">
               <label for="inputWhenServed"><strong>When is the Food/Dessert served?</strong></label><br />
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" required />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="BREAKFAST" onChange={this.whenServedHandler} required />
                 <label class="form-check-label" for="inlineRadio1">BREAKFAST</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" required />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="LUNCH" onChange={this.whenServedHandler} required />
                 <label class="form-check-label" for="inlineRadio1">LUNCH</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" required />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="DINNER" onChange={this.whenServedHandler} required />
                 <label class="form-check-label" for="inlineRadio1">DINNER </label>
               </div>
               <br />
               <br />
               <label for="inputWhereToAdd"><strong>Where to add?</strong></label><br />
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option1" required />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions2" value="Food" onChange={this.whereToAddHandler} id="inlineRadio4" required />
                 <label class="form-check-label" for="inlineRadio2">FOOD</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option1" required />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions2" value="Dessert" onChange={this.whereToAddHandler} id="inlineRadio5" required />
                 <label class="form-check-label" for="inlineRadio2">DESSERT</label>
               </div>
               <br />

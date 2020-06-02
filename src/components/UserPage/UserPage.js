@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import '../GlobalFiles/GlobalFiles.css';
-import './UserPage.css';
 import fire from '../../Firebase';
 
+// CSS
+import '../GlobalFiles/GlobalFiles.css';
+import './UserPage.css';
+
+// Images
 import logo from '../GlobalFiles/logo.png';
 
 class UserPage extends React.Component {
+
   handleLogout = () => {
     fire.auth().signOut();
     this.props.history.push('/')
