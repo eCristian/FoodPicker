@@ -4,12 +4,35 @@ import fire from '../../Firebase';
 
 // CSS
 import '../GlobalFiles/GlobalFiles.css';
-import './UserPage.css';
+import './ChooseFood.css';
 
 // Images
 import logo from '../GlobalFiles/logo.png';
 
-class UserPage extends React.Component {
+
+class ChooseFood extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      whenServed: "",
+      whatToEat: ""
+    }
+  }
+
+  whenServedHandler = (event) => {
+    this.setState({whenServed: event.target.value})
+  }
+
+  whatToEatHandler = (event) => {
+    this.setState({whatToEat: event.target.value})
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`You chose ${this.state.whatToEat} for ${this.state.whenServed} !`)
+    this.props.history.push('/result')
+  }
 
   handleLogout = () => {
     fire.auth().signOut();
@@ -21,30 +44,30 @@ class UserPage extends React.Component {
       <div>
         <Link to="/"><img id="logo" src={logo} alt="Logo" /></Link>
         <div className="formUser">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div class="form-group">
               <label for="whenServed"><strong>When to eat?</strong></label><br />
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="BREAKFAST" onChange={this.whenServedHandler} required />
                 <label class="form-check-label" for="inlineRadio1">BREAKFAST</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="LUNCH" onChange={this.whenServedHandler} required  />
                 <label class="form-check-label" for="inlineRadio1">LUNCH</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="DINNER" onChange={this.whenServedHandler} required  />
                 <label class="form-check-label" for="inlineRadio1">DINNER </label>
               </div>
               <br />
               <br />
               <label for="whenServed"><strong>What to eat?</strong></label><br />
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option1" />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="FOOD" onChange={this.whatToEatHandler} required  />
                 <label class="form-check-label" for="inlineRadio2">FOOD</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option1" />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="DESSERT" onChange={this.whatToEatHandler} required  />
                 <label class="form-check-label" for="inlineRadio2">DESSERT</label>
               </div>
               <br />
@@ -59,4 +82,4 @@ class UserPage extends React.Component {
   }
 }
 
-export default UserPage;
+export default ChooseFood;

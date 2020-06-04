@@ -25,10 +25,10 @@ const Login = ({ history }) => {
         .auth()
         .signInWithEmailAndPassword(email.value, password.value);
       if ( email.value === "admin@foodpicker.com" ) {
-        history.push("/admin");
+        history.push("/addFood");
         adminNumber = 1;
       } else {
-        history.push("/user");
+        history.push("/chooseFood");
         userNumber = 1;
       }
     } catch (error) {
@@ -40,9 +40,9 @@ const Login = ({ history }) => {
 
   if ( currentUser ) {
     if ( adminNumber === 1 ) {
-      return <Redirect to="/admin" />;
+      return <Redirect to="/addFood" />;
     } else if ( userNumber === 1 ) {
-      return <Redirect to="/user" />;
+      return <Redirect to="/chooseFood" />;
     }
   }
 

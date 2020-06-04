@@ -4,15 +4,16 @@ import { AuthProvider } from './components/Auth/Auth';
 import './App.css';
 
 // Private Routes
-import UserRoute from './components/PrivateRoutes/UserRoute/UserRoute';
-import AdminRoute from './components/PrivateRoutes/AdminRoute/AdminRoute';
+import ChooseFoodRoute from './components/PrivateRoutes/ChooseFoodRoute/ChooseFoodRoute';
+import AddFoodRoute from './components/PrivateRoutes/AddFoodRoute/AddFoodRoute';
 
 //Pages
 import HomePage from './components/HomePage/HomePage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import LoginPage from './components/LoginPage/LoginPage';
-import AdminPage from './components/AdminPage/AdminPage';
-import UserPage from './components/UserPage/UserPage';
+import AddFood from './components/AddFood/AddFood';
+import ChooseFood from './components/ChooseFood/ChooseFood';
+import ResultPage from './components/ResultPage/ResultPage';
 import WrongPage from './components/WrongPage/WrongPage';
 
 class App extends React.Component {
@@ -25,8 +26,9 @@ class App extends React.Component {
               <Route exact path="/" component={HomePage} />
               <Route exact path="/register" component={RegisterPage} />
               <Route exact path="/login" component={LoginPage} />
-              <AdminRoute exact path="/admin" component={AdminPage} />
-              <UserRoute exact path="/user" component={UserPage} />
+              <AddFoodRoute exact path="/addFood" component={AddFood} />
+              <ChooseFoodRoute exact path="/chooseFood" component={ChooseFood} />
+              <Route exact path="/result" component={ResultPage} />
               <Route exact path="/pageNotFound" component={WrongPage} />
               <Redirect to="/pageNotFound" />
             </Switch>

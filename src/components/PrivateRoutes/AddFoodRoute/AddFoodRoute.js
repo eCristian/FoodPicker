@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { AuthContext } from '../../Auth/Auth';
 
-const AdminRoute = ({ component: RouteComponent, ...rest }) => {
+const AddFoodRoute = ({ component: RouteComponent, ...rest }) => {
   const { currentUser } = useContext(AuthContext);
   return (
     <Route
@@ -11,11 +11,11 @@ const AdminRoute = ({ component: RouteComponent, ...rest }) => {
         !!currentUser ? (
           <RouteComponent {...routeProps} />
         ) : (
-          <Redirect to={"/admin"} />
+          <Redirect to={"/addFood"} />
         )
       }
     />
   );
 };
 
-export default AdminRoute;
+export default AddFoodRoute;

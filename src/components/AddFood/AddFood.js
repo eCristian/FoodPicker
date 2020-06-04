@@ -4,13 +4,13 @@ import fire from '../../Firebase';
 
 // CSS
 import '../GlobalFiles/GlobalFiles.css';
-import './AdminPage.css';
+import './AddFood.css';
 
 // Images
 import logo from '../GlobalFiles/logo.png';
 import addfood from './addfood.png';
 
-class AdminPage extends React.Component {
+class AddFood extends React.Component {
   constructor(props) {
     super(props);
 
@@ -37,14 +37,12 @@ class AdminPage extends React.Component {
     event.preventDefault();
 
     if ( document.getElementById('inlineRadio4').checked ) {
-      fire.database().ref(`${this.state.whereToAdd}`).push({
+      fire.database().ref(`${this.state.whereToAdd}/${this.state.whenServed}`).push({
         Name: `${this.state.foodOrDessertName}`,
-        Served: `${this.state.whenServed}`
       })
     } else {
-      fire.database().ref(`${this.state.whereToAdd}`).push({
+      fire.database().ref(`${this.state.whereToAdd}/${this.state.whenServed}`).push({
         Name: `${this.state.foodOrDessertName}`,
-        Served: `${this.state.whenServed}`
       })
     }
 
@@ -61,7 +59,7 @@ class AdminPage extends React.Component {
       <div>
         <Link to="/"><img id="logo" src={logo} alt="Logo" /></Link>
         <div>
-          <img id="addfood" src={addfood} alt="Add Food" />
+          <img id="addfoodTitle" src={addfood} alt="Add Food" />
         </div>
         <div className="formAdmin">
           <form onSubmit={this.handleSubmit}>
@@ -72,15 +70,15 @@ class AdminPage extends React.Component {
             <div class="form-group">
               <label for="inputWhenServed"><strong>When is the Food/Dessert served?</strong></label><br />
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="BREAKFAST" onChange={this.whenServedHandler} required />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="Breakfast" onChange={this.whenServedHandler} required />
                 <label class="form-check-label" for="inlineRadio1">BREAKFAST</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="LUNCH" onChange={this.whenServedHandler} required />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="Lunch" onChange={this.whenServedHandler} required />
                 <label class="form-check-label" for="inlineRadio1">LUNCH</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="DINNER" onChange={this.whenServedHandler} required />
+                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="Dinner" onChange={this.whenServedHandler} required />
                 <label class="form-check-label" for="inlineRadio1">DINNER </label>
               </div>
               <br />
@@ -106,4 +104,4 @@ class AdminPage extends React.Component {
   }
 }
 
-export default AdminPage;
+export default AddFood;
