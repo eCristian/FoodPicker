@@ -1,15 +1,15 @@
 import React, { useCallback, useContext }  from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter, Redirect } from 'react-router';
-import fire from '../../Firebase';
+import fire from '../../../Firebase';
 import { AuthContext } from '../Auth/Auth';
 
 // CSS
-import '../GlobalFiles/GlobalFiles.css';
+import '../../BaseFiles/base.css';
 import './LoginPage.css';
 
 // Images
-import logo from '../GlobalFiles/logo.png';
+import logo from '../../BaseFiles/logo.png';
 import loginTitle from './loginTitle.png';
 
 

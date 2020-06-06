@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // CSS
-import '../GlobalFiles/GlobalFiles.css';
+import '../base.css';
 import './HomePage.css';
 
 // Images
 import register from './register.png';
 import login from './login.png';
-import logo from '../GlobalFiles/logo.png';
+import logo from '../logo.png';
 
 class HomePage extends React.Component {
   render() {

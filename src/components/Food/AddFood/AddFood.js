@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import fire from '../../Firebase';
+import fire from '../../../Firebase';
 
 // CSS
-import '../GlobalFiles/GlobalFiles.css';
+import '../../BaseFiles/base.css';
 import './AddFood.css';
 
 // Images
-import logo from '../GlobalFiles/logo.png';
+import logo from '../../BaseFiles/logo.png';
 import addfood from './addfood.png';
 
 class AddFood extends React.Component {

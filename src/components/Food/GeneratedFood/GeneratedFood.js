@@ -1,20 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import fire from '../../Firebase';
-import ChooseFood from '../ChooseFood/ChooseFood';
 
 // CSS
-import '../GlobalFiles/GlobalFiles.css';
-import './ResultPage.css';
+import '../../BaseFiles/base.css';
+import './GeneratedFood.css';
 
 // Images
-import logo from '../GlobalFiles/logo.png';
+import logo from '../../BaseFiles/logo.png';
 
 
 class ResultPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>

@@ -4,8 +4,8 @@ body, html {
 }
 
 body {
-  /* The image used */
-  background-image: url("components/GlobalFiles/background.jpg");
+  /* Background iamge */
+  background-image: url("components/BaseFiles/background.jpg");
 
   /* Full height */
   height: 100%;
