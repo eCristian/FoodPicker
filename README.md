@@ -1,4 +1,4 @@
-Food Picker - A random food generator 
+#Food Picker - A random food generator 
 
 • Food Picker is a web application that generates a food or a dessert based on what a user wants to eat (food/dessert) and when to serve it (breakfast/lunch/dinner).
 
