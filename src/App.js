@@ -13,7 +13,7 @@ import RegisterPage from './components/User/RegisterPage/RegisterPage';
 import LoginPage from './components/User/LoginPage/LoginPage';
 import AddFood from './components/Food/AddFood/AddFood';
 import ChooseFood from './components/User/ChooseFood/ChooseFood';
-import GeneratedFood from './components/Food/GeneratedFood/GeneratedFood';
+import GenerateFood from './components/Food/GenerateFood/GenerateFood';
 import WrongPage from './components/BaseFiles/WrongPage/WrongPage';
 
 class App extends React.Component {
@@ -28,7 +28,7 @@ class App extends React.Component {
               <Route exact path="/login" component={LoginPage} />
               <AddFoodRoute exact path="/addFood" component={AddFood} />
               <ChooseFoodRoute exact path="/chooseFood" component={ChooseFood} />
-              <Route exact path="/result" component={GeneratedFood} />
+              <Route exact path="/result" component={GenerateFood} />
               <Route exact path="/pageNotFound" component={WrongPage} />
               <Redirect to="/pageNotFound" />
             </Switch>

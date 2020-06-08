@@ -10,6 +10,7 @@ import './AddFood.css';
 import logo from '../../BaseFiles/logo.png';
 import addfood from './addfood.png';
 
+
 class AddFood extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +18,8 @@ class AddFood extends React.Component {
     this.state = {
       foodOrDessertName: "",
       whenServed: "",
-      whereToAdd: ""
+      whereToAdd: "",
+      id: null
     }
   }
 
@@ -42,7 +44,7 @@ class AddFood extends React.Component {
       })
     } else {
       fire.database().ref(`${this.state.whereToAdd}/${this.state.whenServed}`).push({
-        Name: `${this.state.foodOrDessertName}`,
+        Name: `${this.state.foodOrDessertName}`
       })
     }
 
