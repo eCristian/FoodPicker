@@ -1,4 +1,4 @@
-# Food Picker - A random food generator 
+# Food Picker - A random food generator app
 
 • Food Picker is a web application that generates a food or a dessert based on what a user wants to eat (food/dessert) and when to serve it (breakfast/lunch/dinner).
 
@@ -6,7 +6,7 @@
 
 • The project uses React and Firebase.
 
-Project demonstration: https://www.loom.com/share/0c0d4b4731384b40a60dc36d2bc636c4
+**Project demonstration:** https://www.loom.com/share/0c0d4b4731384b40a60dc36d2bc636c4
 
 -----------------------------------------------------------------------------------------------------
 
