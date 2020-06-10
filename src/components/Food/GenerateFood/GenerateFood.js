@@ -22,15 +22,16 @@ export class GenerateFood extends React.Component {
   }
 
   componentDidMount = () => {
-    const numberOfUsers = 2;
-    const randomIndex = Math.floor(Math.random() * numberOfUsers);
+    const numberOfProducts = 3;
+    const randomIndex = Math.floor(Math.random() * numberOfProducts);
+    const limit = 1;
 
     var reference = fire.database().ref(`${this.props.location.state.whatToEat}/${this.props.location.state.whenServed}`);
 
-    reference.orderByChild("Name").startAt("Chec").endAt("Chec").on("child_added", snap => {
-      var data = snap.val();
-      console.log(data.Name);
-    });
+    reference.orderByChild("Id").startAt(2).limitToFirst(limit).once('value').then(snapshot => {
+      //var data = snap.val();
+      console.log(snapshot.val());
+    })
   }
 
   render() {

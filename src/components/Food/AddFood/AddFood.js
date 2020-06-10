@@ -18,8 +18,7 @@ class AddFood extends React.Component {
     this.state = {
       foodOrDessertName: "",
       whenServed: "",
-      whereToAdd: "",
-      id: null
+      whereToAdd: ""
     }
   }
 
@@ -38,17 +37,33 @@ class AddFood extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    if ( document.getElementById('inlineRadio4').checked ) {
-      fire.database().ref(`${this.state.whereToAdd}/${this.state.whenServed}`).push({
-        Name: `${this.state.foodOrDessertName}`,
-      })
-    } else {
-      fire.database().ref(`${this.state.whereToAdd}/${this.state.whenServed}`).push({
-        Name: `${this.state.foodOrDessertName}`
-      })
-    }
+    let dbRef = fire.database().ref(`${this.state.whereToAdd}/${this.state.whenServed}`);
+
+    dbRef.limitToLast(1).once("child_added", (snap) => {
+      let data = snap.val();
+      let lastId = +data.Id + +1;
+
+      //this.state.id = lastId;
+      console.log(lastId);
+      //console.log(presentId);
+      //console.log(this.state.id);
+      console.log("------------");
+
+      if ( document.getElementById('inlineRadio4').checked ) {
+        dbRef.push({
+          Id: lastId,
+          Name: this.state.foodOrDessertName
+        })
+      } else {
+        dbRef.push({
+          Id: lastId,
+          Name: this.state.foodOrDessertName
+        })
+      }
+    })
 
     alert(`${this.state.foodOrDessertName} Added Successfully to database!`)
+
   }
 
   handleLogout = () => {
