@@ -43,12 +43,6 @@ class AddFood extends React.Component {
       let data = snap.val();
       let lastId = +data.Id + +1;
 
-      //this.state.id = lastId;
-      console.log(lastId);
-      //console.log(presentId);
-      //console.log(this.state.id);
-      console.log("------------");
-
       if ( document.getElementById('inlineRadio4').checked ) {
         dbRef.push({
           Id: lastId,
@@ -63,7 +57,6 @@ class AddFood extends React.Component {
     })
 
     alert(`${this.state.foodOrDessertName} Added Successfully to database!`)
-
   }
 
   handleLogout = () => {
