@@ -1,16 +1,22 @@
-#resultText {
-  margin-left: 15%;
+#parametersText {
+  margin-left: 16%;
   margin-top: 3%;
   font-size: 200%;
 }
 
+#resultText {
+  margin-left: 20%;
+  margin-top: 2%;
+  font-size: 300%;
+}
+
 #chooseFoodAginBtn {
-  margin-top: 10%;
-  margin-left: 22%;
+  margin-top: 2%;
+  margin-left: 23%;
 }
 
 #footerTextGenerateFood {
-  margin-top: 10%;
+  margin-top: 15%;
   margin-left: 22%;
 }
 
