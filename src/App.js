@@ -12,7 +12,7 @@ import HomePage from './components/BaseFiles/HomePage/HomePage';
 import RegisterPage from './components/User/RegisterPage/RegisterPage';
 import LoginPage from './components/User/LoginPage/LoginPage';
 import AddFood from './components/Food/AddFood/AddFood';
-import ChooseFood from './components/User/ChooseFood/ChooseFood';
+import ChooseFood from './components/Food/ChooseFood/ChooseFood';
 import GenerateFood from './components/Food/GenerateFood/GenerateFood';
 import WrongPage from './components/BaseFiles/WrongPage/WrongPage';
 

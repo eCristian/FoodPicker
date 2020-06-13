@@ -42,7 +42,6 @@ export class GenerateFood extends React.Component {
     dbRef.orderByChild("Id").startAt(randomIndex).limitToFirst(1).once("child_added", snapshot => {
       let data = snapshot.val();
       this.setState({ result: data.Name });
-      console.log(this.state.result);
     })
   }
 

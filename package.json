@@ -1,5 +1,6 @@
 {
   "name": "foodpicker",
+  "homepage": "http://foodpickerapp.epizy.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
