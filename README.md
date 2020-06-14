@@ -6,7 +6,7 @@
 
 • The project uses React and Firebase.
 
-**Project demonstration:** https://www.loom.com/share/0c0d4b4731384b40a60dc36d2bc636c4
+**Project demonstration:** https://www.loom.com/share/779bf150b7884ccaa2f20e834fd0006c
 
 -----------------------------------------------------------------------------------------------------
 
